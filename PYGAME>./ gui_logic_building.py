@@ -1,7 +1,9 @@
 import pygame , sys # imports the main pygame module eg pygame.init() pygame.display
 from pygame.locals import * #imports constant from pygames locals submodule
 # pygame constants are named values that represent event types , keys and flags
-
+# pygame.locals contains all the constants (things that can happen)
+# instead of repeating the pygame.locals.QUIT due to our import method we can just right QUIT
+# Since line 5 says from the module of pygame.locals import all the constants it has (*)
 pygame.init() # starts the pygame ... to allow use of its modules
 DISPLAYSURF = pygame.display.set_mode((400,300)) # this returns the surface object for the window ... it has a tuple that provide the length and width window in pixels
 # remember that we always need a tuple for the 2 to bud them into one
@@ -12,7 +14,7 @@ pygame.display.set_caption('hellow world')
 while True: # provide a state of contuinity / main game loop / meaning it never exist
     for one in pygame.event.get(): #checks for events multiples times in a sec and is gotten by pygame.event,get()
         #pygame.event.get() returns a list of all events that happened (like key presses, mouse clicks, window close). then (for event) it loops obver every list of event given in the list
-        #one carries each event >>> this events are eventobjects like 
+        #one(variable that) carries each event object (one by one)>>> this events are eventobjects like 
             # 1.event.type(what kind of event , KEYDOWN , QUIT )
             #  2.event.key (which key)
             # 3. event.pos (mouse positioning)
@@ -21,10 +23,41 @@ while True: # provide a state of contuinity / main game loop / meaning it never 
 # Event object is created by the Pygame library to record this ―event‖. (This is a type of object called Event that exists in the event module, which itself is in the pygame module.
 #we then use pygame.event.get() to get all of this object and return them into a list whic we then iterate over
 # then we say if event.type == QUIT then do something ..... thats the full on logic
+            #
+            ## example --- if a user then moved the mouse and press a key on the keyboard
+            
+            # the first event object to be created will be the mouse event then the key respectively
+            
+            #so pygame.event.get() gets the list of those objects in order
+            
+            # then for creates a variable for each event.object under the loop under the given name
+        if one.type == QUIT:
+            
+            pygame.quit() # this deactivates the code that runs pygame.library
+            
+            sys.exit() # this terminates the program
+            # it is recommenderd that we do pygame.exit() firste before terminating the program
+            
+            # this is because of the IDLE bug that causes the idle to hang if a pygame program is terminated before pygame.quit() is called
+
+
+
+    pygame.display.update() #THIS now draws on the surface object everytime the event occurs
+
+
+
+
+# Since the Surface object hasn’t changed (for example, by someof the drawing functions that are explained later in this chapter), the same black image is redrawn to the screen each time pygame.display.update() is called.
+
+
+
+
+
+
 
 # a game loop / main loop - loop that does three thing
 # 1.handles events
 # 2.updates the game state
 # 3.draws the game state to the screen
 
-# by game state we just mean all the set of values for allt eh variables in a game programgi
+# by game state we just mean all the set of values for allt eh variables in a game programg
