@@ -8,6 +8,7 @@ pygame.display.set_caption('hello world')
 # rember that pygame .display works on the window surface
 
 running = True
+
 while running:# keeps the program alive .... meaning this code will always run untill running becomes false(through maybe a quit constant)
     for event in pygame.event.get(): # this gets all the events occuring on our window surface
         if event.type == QUIT: #if the event type is equal to the contant of QUIT event .... then run the quiting code            
