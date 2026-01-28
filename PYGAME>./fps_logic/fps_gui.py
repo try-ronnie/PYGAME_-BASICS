@@ -36,7 +36,7 @@ girl_x = 100
 girl_y= 100
 direction = 'right'
 
-money = pygame.image.load('money.jpeg')
+money = pygame.image.load('money.jpg')
 money_x = 600
 money_y = 100
 
@@ -72,7 +72,7 @@ while running:
                         money_x == 600
                         direction = 'right'
         DISPLAYSURF.blit(girl , (girl_x , girl_y))
-        for event in pygame.get.event():
+        for event in pygame.event.get():
                 if event == QUIT:
                         pygame.quit()
                         sys.exit() # closes the gui
