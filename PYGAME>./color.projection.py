@@ -47,5 +47,3 @@ while running:
             sys.exit()
     
     pygame.display.update()# should be out so that it updates every time the loop ends
-        
-        
